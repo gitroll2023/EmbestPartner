@@ -4,7 +4,8 @@ import { useState } from "react";
 
 export default function Home() {
   const [copyEmailSuccess, setCopyEmailSuccess] = useState(false);
-  const [copyTemplateSuccess, setCopyTemplateSuccess] = useState(false);
+  const [copyPartnershipSuccess, setCopyPartnershipSuccess] = useState(false);
+  const [copyStoreSuccess, setCopyStoreSuccess] = useState(false);
   const [activeTab, setActiveTab] = useState("intro");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
@@ -27,6 +28,32 @@ export default function Home() {
 □ 기타 (상세 기재):
 
 기대 효과:
+
+추가 문의사항:
+
+감사합니다.`;
+
+  const storeTemplate = `[EM베스트 입점 문의]
+
+회사/브랜드명: 
+담당자명: 
+연락처: 
+이메일: 
+웹사이트/쇼핑몰 URL: 
+
+취급 제품 카테고리:
+□ 키보드
+□ 마우스
+□ 헤드셋
+□ 모니터
+□ 기타 게이밍 장비 (상세 기재):
+
+주요 판매 제품 및 브랜드:
+
+희망 입점 형태:
+□ 제품 판매
+□ 브랜드관 개설
+□ 기타 (상세 기재):
 
 추가 문의사항:
 
@@ -283,21 +310,29 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 제휴문의 양식 섹션 */}
+            {/* 문의 양식 섹션 */}
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="flex flex-col gap-4">
                 <div>
-                  <h3 className="font-medium text-gray-800 mb-1">제휴 문의 양식</h3>
-                  <p className="text-gray-600 text-sm">
-                    아래 버튼을 클릭하여 기본 제휴 문의 양식을 복사하고, 이메일에 붙여넣기 하세요.
+                  <h3 className="font-medium text-gray-800 mb-1">문의 양식</h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    아래 버튼을 클릭하여 원하는 문의 양식을 복사하고, 이메일에 붙여넣기 하세요.
                   </p>
                 </div>
-                <button
-                  onClick={() => copyToClipboard(partnershipTemplate, setCopyTemplateSuccess)}
-                  className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition-colors"
-                >
-                  {copyTemplateSuccess ? "복사 완료!" : "제휴 문의 양식 복사하기"}
-                </button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => copyToClipboard(partnershipTemplate, setCopyPartnershipSuccess)}
+                    className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition-colors flex-1"
+                  >
+                    {copyPartnershipSuccess ? "복사 완료!" : "제휴 문의 양식 복사하기"}
+                  </button>
+                  <button
+                    onClick={() => copyToClipboard(storeTemplate, setCopyStoreSuccess)}
+                    className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded transition-colors flex-1"
+                  >
+                    {copyStoreSuccess ? "복사 완료!" : "입점 문의 양식 복사하기"}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
