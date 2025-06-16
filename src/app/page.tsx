@@ -4,35 +4,12 @@ import { useState } from "react";
 
 export default function Home() {
   const [copyEmailSuccess, setCopyEmailSuccess] = useState(false);
-  const [copyPartnershipSuccess, setCopyPartnershipSuccess] = useState(false);
   const [copyStoreSuccess, setCopyStoreSuccess] = useState(false);
   const [activeTab, setActiveTab] = useState("intro");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const email = "qkrwodud30@naver.com";
   
-  const partnershipTemplate = `[EM베스트 제휴 문의]
-
-회사/브랜드명: 
-담당자명: 
-연락처: 
-이메일: 
-제휴 제안 내용:
-
-귀사의 제품/서비스에 대한 간략한 소개:
-
-희망하는 제휴 형태(선택):
-□ 제품 리뷰/홍보
-□ 공동 이벤트/프로모션
-□ 스폰서십
-□ 기타 (상세 기재):
-
-기대 효과:
-
-추가 문의사항:
-
-감사합니다.`;
-
   const storeTemplate = `[EM베스트 입점 문의]
 
 회사/브랜드명: 
@@ -41,7 +18,7 @@ export default function Home() {
 이메일: 
 웹사이트/쇼핑몰 URL: 
 
-취급 제품 카테고리:
+취급 제품 카테고리(필수 선택):
 □ 키보드
 □ 마우스
 □ 헤드셋
@@ -54,6 +31,10 @@ export default function Home() {
 □ 제품 판매
 □ 브랜드관 개설
 □ 기타 (상세 기재):
+
+※ 중요 안내:
+- EM베스트는 단순 체험단 목적의 제휴는 진행하지 않으며, 오직 입점시스템으로만 협력을 진행합니다.
+- FPS 게임 및 게이밍 장비와 관련 없는 업체(병원, 화장품, 건강식품 등)는 문의를 자제해 주시기 바랍니다.
 
 추가 문의사항:
 
@@ -219,7 +200,7 @@ export default function Home() {
       {/* 헤더 */}
       <header className="bg-white shadow-md py-4">
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">EM베스트 제휴문의</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">EM베스트 입점문의</h1>
           <div className="hidden md:block">
             <p className="text-gray-600 text-sm">FPS 장비 전문 커뮤니티</p>
           </div>
@@ -287,11 +268,18 @@ export default function Home() {
 
           {/* 제휴문의 섹션 */}
           <div className="p-6 md:p-8">
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4">제휴 문의</h2>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4">입점 문의</h2>
             <p className="text-gray-600 mb-6">
-              EM베스트와의 제휴를 통해 귀사의 제품이나 서비스를 FPS 게임을 즐기는 
+              EM베스트와의 입점을 통해 귀사의 게이밍 제품을 FPS 게임을 즐기는 
               열정적인 게이머들에게 효과적으로 알릴 수 있습니다. 
-              아래 이메일로 제휴 문의를 보내주시면 검토 후 연락드리겠습니다.
+              저희는 단순 체험단 목적의 제휴는 진행하지 않으며, 오직 입점시스템으로만 협력을 진행하고 있습니다.
+              아래 이메일로 입점 문의를 보내주시면 검토 후 연락드리겠습니다.
+            </p>
+            <p className="mb-6 font-medium text-red-600">
+              ※ 주의 사항:
+              <br />- EM베스트는 단순 체험단 목적의 제휴는 진행하지 않으며, 오직 입점시스템으로만 협력을 진행합니다.
+              <br />- FPS 게임 및 게이밍 장비와 관련 없는 업체(병원, 화장품, 건강식품 등)는 문의를 자제해 주시기 바랍니다.
+              <br />- 관련성 없는 업체의 문의는 답변이 어려울 수 있습니다.
             </p>
 
             {/* 이메일 복사 섹션 */}
@@ -321,12 +309,6 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
-                    onClick={() => copyToClipboard(partnershipTemplate, setCopyPartnershipSuccess)}
-                    className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition-colors flex-1"
-                  >
-                    {copyPartnershipSuccess ? "복사 완료!" : "제휴 문의 양식 복사하기"}
-                  </button>
-                  <button
                     onClick={() => copyToClipboard(storeTemplate, setCopyStoreSuccess)}
                     className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded transition-colors flex-1"
                   >
@@ -344,7 +326,7 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <h2 className="text-xl font-bold">EM베스트 제휴문의</h2>
+              <h2 className="text-xl font-bold">EM베스트 입점문의</h2>
               <p className="text-gray-300 text-sm mt-1">FPS 장비 전문 커뮤니티</p>
             </div>
             <div className="text-gray-300 text-sm">
