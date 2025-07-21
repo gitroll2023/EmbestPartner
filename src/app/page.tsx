@@ -303,8 +303,11 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 <div>
                   <h3 className="font-medium text-gray-800 mb-1">문의 양식</h3>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <p className="text-gray-600 text-sm mb-2">
                     아래 버튼을 클릭하여 원하는 문의 양식을 복사하고, 이메일에 붙여넣기 하세요.
+                  </p>
+                  <p className="text-red-600 text-sm font-medium mb-4">
+                    ※ 입점 문의는 사업자 등록이 되어있는 업체만 가능합니다. 일반 개인은 신청할 수 없습니다.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
